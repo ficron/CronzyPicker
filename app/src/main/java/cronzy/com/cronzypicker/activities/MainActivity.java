@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity
 
     private void initColorPickerView() {
 //this::userTheRounededColor
-        GentlePalette.generate(mColorCirclePickerView.getColor(), Palettes.FLAT_COLORS, this::setColors);
+        //GentlePalette.generate(mColorCirclePickerView.getColor(), Palettes.FLAT_COLORS, this::setColors);
 
 
         mColorCirclePickerView = (ColorCirclePicker) findViewById(R.id.colorPickerView);
@@ -211,11 +211,13 @@ public class MainActivity extends AppCompatActivity
                     }
                 });
     }
-
+/*
     private void setColors(int color){
     Toast.makeText(this, "please insert a color in #XXXXXX format", Toast.LENGTH_LONG).show();
 mColorCirclePickerView.setColor(color);
     }
+ */
+
 
 
     @Override
