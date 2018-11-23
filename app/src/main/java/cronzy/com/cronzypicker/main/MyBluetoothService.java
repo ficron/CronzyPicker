@@ -168,7 +168,6 @@ public class MyBluetoothService  {
 
         return btSocket;
         // Create a data stream so we can talk to server.
-        //Log.d(TAG_BT, "...Создание Socket..." + btSocket.isConnected());
         //mConnectedThread = new ConnectedThread(btSocket);
         //mConnectedThread.start();
     }
