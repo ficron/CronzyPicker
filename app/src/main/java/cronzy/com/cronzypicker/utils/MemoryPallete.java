@@ -1,4 +1,4 @@
-package cronzy.com.cronzypicker.main;
+package cronzy.com.cronzypicker.utils;
 
 import android.app.Activity;
 import android.graphics.Color;

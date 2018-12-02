@@ -27,7 +27,7 @@ import cronzy.com.cronzypicker.utils.MySharedPreferences;
 
 public class InitActivity extends Activity  {
     private Button searchDevesis;
-    private BluetoothAdapter BA;
+    private BluetoothAdapter btAdapter;
     private Set<BluetoothDevice> pairedDevices;
     private ListView lv;
     private MySharedPreferences preferences;
@@ -39,6 +39,7 @@ public class InitActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.init_bluetooth);
         preferences = new MySharedPreferences(this);
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
         redirect();
         initViews();
     }
@@ -46,6 +47,18 @@ public class InitActivity extends Activity  {
 
     private void redirect() {
         bluetoothAdress = preferences.getBluetoothAddress();
+
+        enableBluetoothAdapter();
+
+        while (!btAdapter.isEnabled()) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
         if (!bluetoothAdress.equals(ProjectConstants.APP_DEFAULT_NAME_VALUE)) {
             Intent intent = new Intent(InitActivity.this, MainActivity.class);
             intent.putExtra(ProjectConstants.APP_PREFERENCES_NAME, bluetoothAdress);
@@ -55,19 +68,19 @@ public class InitActivity extends Activity  {
 
     private void initViews() {
         searchDevesis = (Button) findViewById(R.id.btnSearchDevesis);
-        BA = BluetoothAdapter.getDefaultAdapter();
         lv = (ListView) findViewById(R.id.listOfPairedDevises);
     }
 
     public void showListOfPairedDevises(View v) {
-        if (!BA.isEnabled()){
+
+        if (!btAdapter.isEnabled()){
             Toast.makeText(getBaseContext(), "Bluetooth is NOT Enabled!",
                     Toast.LENGTH_SHORT).show();
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, ProjectConstants.REQUEST_ENABLE_BT);
         }
 
-        pairedDevices = BA.getBondedDevices();
+        pairedDevices = btAdapter.getBondedDevices();
         ArrayList list = new ArrayList();
         final Map<String, BluetoothDevice> bdLMap = new HashMap<>();
         for (BluetoothDevice bt : pairedDevices) {
@@ -102,4 +115,14 @@ public class InitActivity extends Activity  {
             }
         });
     }
+
+
+
+        private void enableBluetoothAdapter(){
+        if (!btAdapter.isEnabled()){
+            Intent enableBtIntent = new Intent(btAdapter.ACTION_REQUEST_ENABLE);
+            this.startActivityForResult(enableBtIntent, ProjectConstants.REQUEST_ENABLE_BT);
+        }
+    }
+
 }

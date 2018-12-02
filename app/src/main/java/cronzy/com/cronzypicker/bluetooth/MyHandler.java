@@ -1,4 +1,4 @@
-package cronzy.com.cronzypicker.main;
+package cronzy.com.cronzypicker.bluetooth;
 
 import android.os.Handler;
 import android.util.Log;

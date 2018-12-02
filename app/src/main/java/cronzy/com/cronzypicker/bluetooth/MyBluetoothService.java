@@ -1,4 +1,4 @@
-package cronzy.com.cronzypicker.main;
+package cronzy.com.cronzypicker.bluetooth;
 
 
 import android.bluetooth.BluetoothAdapter;
@@ -62,7 +62,7 @@ public class MyBluetoothService  {
         public void run() {
             mmBuffer = new byte[1024];
             int numBytes; // bytes returned from read()
-            Log.d(ProjectConstants.TAG_Handle,"i am in run()");
+
             // Keep listening to the InputStream until an exception occurs.
             while (true) {
                 try {
