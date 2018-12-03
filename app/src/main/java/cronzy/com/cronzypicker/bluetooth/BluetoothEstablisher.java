@@ -5,12 +5,9 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.widget.Toast;
-
 import java.io.IOException;
-
 import cronzy.com.cronzypicker.constants.ProjectConstants;
 import cronzy.com.cronzypicker.views.ColorCirclePicker;
-import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class BluetoothEstablisher {
 

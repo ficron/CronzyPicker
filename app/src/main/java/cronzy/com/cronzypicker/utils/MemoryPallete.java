@@ -12,7 +12,6 @@ import java.util.List;
 
 import cronzy.com.cronzypicker.R;
 import cronzy.com.cronzypicker.constants.ProjectConstants;
-import cronzy.com.cronzypicker.utils.ArchieveColors;
 import cronzy.com.cronzypicker.views.ColorCirclePicker;
 import cronzy.com.cronzypicker.views.MemoryCircle;
 

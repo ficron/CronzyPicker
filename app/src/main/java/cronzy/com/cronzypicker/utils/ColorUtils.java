@@ -4,7 +4,6 @@ package cronzy.com.cronzypicker.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ColorUtils {
 
     /**

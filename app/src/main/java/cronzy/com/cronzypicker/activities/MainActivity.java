@@ -1,7 +1,6 @@
 package cronzy.com.cronzypicker.activities;
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothSocket;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -18,7 +17,6 @@ import cronzy.com.cronzypicker.R;
 import cronzy.com.cronzypicker.bluetooth.BluetoothEstablisher;
 import cronzy.com.cronzypicker.constants.ProjectConstants;
 import cronzy.com.cronzypicker.utils.MemoryPallete;
-import cronzy.com.cronzypicker.bluetooth.MyBluetoothService;
 import cronzy.com.cronzypicker.utils.ArchieveColors;
 import cronzy.com.cronzypicker.utils.ColorUtils;
 import cronzy.com.cronzypicker.utils.MySharedPreferences;
@@ -250,7 +248,6 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, InitActivity.class);
             startActivity(intent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
